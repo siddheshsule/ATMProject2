@@ -88,8 +88,8 @@ public class Bank {
 
     public User userLogin(String userId, String pin){
 
-        // search through the liust of users
-        for(User u: users){
+        // search through the list of users
+        for(User u: this.users){
             if(u.getUUID().compareTo(userId) == 0 && u.validatePin(pin)){
                 return  u;
             }

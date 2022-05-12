@@ -31,9 +31,9 @@ public class Account {
         // get the accounts balance
         double balance = this.getBalance();
 
-        //format the summary line whethe rthe balance is negative
+        //format the summary line whether the balance is negative
         if(balance >=0){
-            return String.format("%s : %.02f : %s", this.accountUuid, balance, this.accountName);
+            return String.format("\n%s : %.02f : %s", this.accountUuid, balance, this.accountName);
         }
         return null;
     }
@@ -49,7 +49,7 @@ public class Account {
     * Printing the transaction history of the account
     * */
     public void printTransactionHistory(){
-        System.out.printf("\nShowing transaction history for account %s\n", this.accountUuid);
+        System.out.printf("\nShowing transaction history for account %s\n ", this.accountUuid);
         for(int i = this.transactions.size() - 1; i>=0; --i){
             System.out.printf(this.transactions.get(i).getSummaryLine());
         }
@@ -57,4 +57,9 @@ public class Account {
     }
 
 
+    public void addTransaction(double amount, String memo) {
+        Transaction newTrans = new Transaction(amount, memo, this);
+        this.transactions.add(newTrans);
+
+    }
 }

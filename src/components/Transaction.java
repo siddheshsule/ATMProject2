@@ -9,7 +9,7 @@ public class Transaction {
     private Date timeStamp;
     // The memo for this transaction
     private  String memo;
-    // The account in whihc the transaction was performed
+    // The account in which the transaction was performed
     private  Account inAccount;
 
 
