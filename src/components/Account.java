@@ -25,4 +25,36 @@ public class Account {
         return accountUuid;
 
     }
+
+
+    public Object getSummaryLine() {
+        // get the accounts balance
+        double balance = this.getBalance();
+
+        //format the summary line whethe rthe balance is negative
+        if(balance >=0){
+            return String.format("%s : %.02f : %s", this.accountUuid, balance, this.accountName);
+        }
+        return null;
+    }
+
+    public double getBalance() {
+        double balance = 0;
+        for(Transaction t: this.transactions){
+            balance += t.getAmount();
+        }
+        return balance;
+    }
+    /*
+    * Printing the transaction history of the account
+    * */
+    public void printTransactionHistory(){
+        System.out.printf("\nShowing transaction history for account %s\n", this.accountUuid);
+        for(int i = this.transactions.size() - 1; i>=0; --i){
+            System.out.printf(this.transactions.get(i).getSummaryLine());
+        }
+        System.out.println();
+    }
+
+
 }

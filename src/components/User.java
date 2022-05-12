@@ -59,4 +59,20 @@ public class User {
         }
     return false;
     }
+
+    public Object getFirstName() {
+        return this.firstName;
+    }
+
+    public void printAccountSummary() {
+        System.out.printf("\n\n%s's accounts summary", this.firstName);
+        for(int i =0; i<this.accounts.size(); ++i){
+            System.out.printf("%d), %s\n", i+1, this.accounts.get(i).getSummaryLine());
+        }
+        System.out.println();
+
+
+    }
+
+
 }
